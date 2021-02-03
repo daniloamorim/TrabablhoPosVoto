@@ -2,7 +2,7 @@ import pickle
 import os
 
 #cria o arquivo binário
-arquivo = open('TrabalhoDaniloAmorim.db', 'wb')
+arquivo = open('file.db', 'wb')
 for i in range(10):
     pickle.dump(i, arquivo)
 arquivo.close()
@@ -16,7 +16,7 @@ def linha():
 
 def mostrarMenu():
     os.system('cls')
-    print('Existe(m)' + str(len(db))+' candidatos registrados\n\n')
+    print('Existe(m)' + str(len(db))+' candidato (s) registrado(s).\n\n')
     print('Escolha uma opção')
     print('1 - Incluir candidato')
     print('2 - Consultar candidato')
@@ -95,6 +95,7 @@ def modificar():
     else:
         print('\033[31mRegistro não encontrado.\033[m')
         frase = print('\033[31mpressione para voltar ao menu\033[m')
+    principal()
 
 #deletar do arquivo
 def remover():
@@ -108,7 +109,7 @@ def remover():
     else:
         print('\033[31mRegistro não encontrado.\033[m')
         frase = print('\033[31mpressione para voltar ao menu\033[m')
-        principal()
+    principal()
 
 def list():
     if len(db) > 0:
@@ -167,6 +168,6 @@ def principal():
                 print('\033[31mPor favor selecione uma opção válida.\033[m')
         except (ValueError):
             print('\033[31mDigite uma opção válida.\033[m')
-            principal()
+        principal()
 
 principal()    
